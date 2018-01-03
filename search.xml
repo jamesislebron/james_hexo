@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[第一篇文章]]></title>
-    <url>%2F2017%2F12%2F25%2Ftest-art%2F</url>
-    <content type="text"><![CDATA[欢迎来到第一篇文章。 jamesduan.com! Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick Start醉里挑灯看剑，梦回吹角连营！ 杜甫, 唐诗三百首www.jamesduan.com 123456789101112from PIL import Imageimport hashlibimport timeimport osimport mathclass VectorCompare:def magnitude(self,concordance): total = 0 for word,count in concordance.iteritems(): total += count ** 2 return math.sqrt(total); Create a new post1$ hexo new "My New Post" More info: 第一篇文章 Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[ansi_ci]]></title>
+    <url>%2F2018%2F01%2F03%2Fansi-ci%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[next主题fullimage显示不居中问题]]></title>
+    <url>%2F2018%2F01%2F01%2Ftest-art%2F</url>
+    <content type="text"><![CDATA[使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子. 小小抱怨一下不得不说备案真是一个让人抓狂的过程，之前对公司备案的繁琐有所经历，没想到个人备案也是不遑多让。服务器是在阿里云上，阿里云在备案方面帮着省去了很多的备案步骤，结果还是弄得我够呛，关于备案在之前的文章有详细提及。 遇到的问题这次是在阅读iissnan大神文档的时候，发现了FullImage的功能，觉得很酷炫，就想着用着试试。结果一直没达到文档中的效果，图片的尺寸是超出700px了，但是愣是不居中，效果有点尴尬。 解决思路和过程开始猜测是next尺寸的问题，翻了半天，发现自己并没有使用custom.yml调整过尺寸，并且尴尬的是不论怎么调整尺寸都还是一样。秉持着”有啥不懂看官方文档”的宗旨，把作者的文档来来回回看了两遍，看自己的配置是否有问题，结果无功而返。然后直接搜索引擎搜是否有朋友有过类似的困扰，也没有搜到。然后继续寻找NexT主题相关社区，想着提个问题什么的，也没找到靠谱活跃的社区。最终在GitHub上找到了十几天前有位朋友开了个一模一样的issue #2039，并且已经在#2043得到了解决。 以上。]]></content>
       <categories>
-        <category>测试</category>
+        <category>技术进步</category>
       </categories>
       <tags>
-        <tag>测试</tag>
-        <tag>学习</tag>
+        <tag>problems</tag>
+        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2017%2F12%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这是个人网站的第一篇博客，标题就直接用了‘Hello World’。刚开始接触CS的时候，总是略微有些嫌弃‘Hello World’的，可能是这个梗被用得太多，有点嚼烂了的感觉。不过随着时间的推移，越来越喜欢‘Hello world’这个词了。因为每次屏幕上出现的‘Hello World’，总是伴随着新知识的学习，或是新作品的诞生！就像棋手落下的第一子、画家挥下的第一笔…矫情的废话不多说，James’s note主要会记录以下的一些内容。 Tech BlogJames’s note最最主要的作用就是记录关于技术方面的博客，文章，思考，也就是类似于笔记本的作用。关于技术的，不论是长篇大论，还是自己工作中接触到问题的反思和总结,抑或是一个代码片段，都会记录在这边。 Note Life另一方面，主要会记录自己的一些生活经历，出行，有感等等。 Something Else最后，就是一些七七八八的，想要随便写写的杂文了。 At Last希望自己能够多坚持一些，长期，持续地维护好这个主页，在这期间也能持续地不断成长！ More info: HomePage]]></content>
+    <content type="text"><![CDATA[这是个人网站的第一篇博客，标题就直接用了‘Hello World’。刚开始接触CS的时候，总是略微有些嫌弃‘Hello World’的，可能是这个梗被用得太多，有点嚼烂了的感觉。不过随着时间的推移，越来越喜欢‘Hello world’这个词了。因为每次屏幕上出现的‘Hello World’，总是伴随着新知识的学习，或是新作品的诞生！就像棋手落下的第一子、画家挥下的第一笔…矫情的废话不多说，James’s note主要会记录以下的一些内容。 Tech BlogJames’s note最最主要的作用就是记录关于技术方面的博客，文章，思考，也就是类似于笔记本的作用。关于技术的，不论是长篇大论，还是自己工作中接触到问题的反思和总结,抑或是一个代码片段，都会记录在这边。 Note Life另一方面，主要会记录自己的一些生活经历，出行，有感等等。 Something Else最后，就是一些七七八八的，想要随便写写的杂文了。 At Last希望自己能够多坚持一些，长期，持续地维护好这个主页，在这期间也能持续地不断成长！ More info: HomePage 以上。]]></content>
       <categories>
         <category>杂谈</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>Hello world</tag>
+        <tag>NexT</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
 </search>
