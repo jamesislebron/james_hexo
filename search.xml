@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[ansi_ci]]></title>
-    <url>%2F2018%2F01%2F03%2Fansi-ci%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[next主题fullimage显示不居中问题]]></title>
     <url>%2F2018%2F01%2F01%2Ftest-art%2F</url>
     <content type="text"><![CDATA[使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子. 小小抱怨一下不得不说备案真是一个让人抓狂的过程，之前对公司备案的繁琐有所经历，没想到个人备案也是不遑多让。服务器是在阿里云上，阿里云在备案方面帮着省去了很多的备案步骤，结果还是弄得我够呛，关于备案在之前的文章有详细提及。 遇到的问题这次是在阅读iissnan大神文档的时候，发现了FullImage的功能，觉得很酷炫，就想着用着试试。结果一直没达到文档中的效果，图片的尺寸是超出700px了，但是愣是不居中，效果有点尴尬。 解决思路和过程开始猜测是next尺寸的问题，翻了半天，发现自己并没有使用custom.yml调整过尺寸，并且尴尬的是不论怎么调整尺寸都还是一样。秉持着”有啥不懂看官方文档”的宗旨，把作者的文档来来回回看了两遍，看自己的配置是否有问题，结果无功而返。然后直接搜索引擎搜是否有朋友有过类似的困扰，也没有搜到。然后继续寻找NexT主题相关社区，想着提个问题什么的，也没找到靠谱活跃的社区。最终在GitHub上找到了十几天前有位朋友开了个一模一样的issue #2039，并且已经在#2043得到了解决。 以上。]]></content>
@@ -13,8 +8,8 @@
         <category>技术进步</category>
       </categories>
       <tags>
-        <tag>problems</tag>
         <tag>NexT</tag>
+        <tag>problems</tag>
       </tags>
   </entry>
   <entry>
@@ -25,8 +20,32 @@
         <category>杂谈</category>
       </categories>
       <tags>
-        <tag>NexT</tag>
         <tag>blog</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[test-title]]></title>
+    <url>%2F2017%2F08%2F03%2F2018-01-05%2F</url>
+    <content type="text"><![CDATA[生产中使用jenkins已经很久了，很早就想总结一下自己在本地的使用情况。 首先说明jenkins无疑是近几年来最炙手可热的持续集成工具，功能强大，插件应有尽有，社区活跃，且被众多大公司实际生产中应用。关于jenkins，在此就不详细介绍了（主要是我也还远没了解透彻）。要想详细了解jenkins，请直接查看官方文档有详细提及。 主要应用点jenkins是一个功能强大的工具，但我司目前还只是用来做自动拉取代码、打包、发布这几项工作，主要涉及的工具是jenkins和ansible。使用jenkins自动拉取代码，自动构建，ansible完成发布工作。 简单讲解jenkins中主要是使用了maven（针对maven项目）和git两个插件.ansible则可以使用command_line、play_book或者role都可以。由于应用环境简单，我直接使用了ansible的command_line。 jenkins中的shell1sh /deploy/jenkins_deploy_$&#123;JOB_NAME&#125;.sh jenkinsdeploy${JOB_NAME}.sh123456789101112131415161718192021#定义应用变量和应用目录，发布其它应用只需要把APP的值修改成相应的,比如APP=demo.war#需要修改APP这一处即可APP=app_name#定义发布应用的脚本变量，发布其它应用需要把DEPLOY_APP的值修改成相应的，DEPLOY_APP=deploy_$&#123;APP&#125;.sh#定义部署服务器组webservers=$&#123;APP&#125;DEP_PATH=dep_pathPAK_PATH=pak_path#应用服务器创建deploy目录ansible $webservers -u appsvr -m shell -a "mkdir -p $&#123;DEP_PATH&#125;"#将war包复制到应用服务器的/deployansible $webservers -u appsvr -m copy -a "src=$&#123;PAK_PATH&#125;/$&#123;APP&#125;-1.0-SNAPSHOT.jar dest=$&#123;DEP_PATH&#125; owner=appsvr group=appsvr mode=0755 "#将构建ID号复制到应用服务器的/deploy下#ansible $webservers -u qappsom -m copy -a "src=/deploy/$LASTBUILD dest=/deploy/ owner=qappsom group=grpadm mode=0755 "#将部署脚本复制到应用服务器的/deploy下ansible $webservers -u appsvr -m copy -a "src=$&#123;DEP_PATH&#125;/$DEPLOY_APP dest=$&#123;DEP_PATH&#125; owner=appsvr group=appsvr mode=0644 "#执行发布脚本ansible $webservers -u appsvr -m shell -a "sh /$&#123;DEP_PATH&#125;/$&#123;DEPLOY_APP&#125;" -f 1 deploy_${JOB_NAME}.sh1234567891011121314151617181920212223242526272829303132333435363738#如果新增模块，只需复制本脚本，然后把APP的变量值改成相对应的模块名即可。比如,APP=oms#只需要改1处source /etc/profileAPP=app_nameNOW=`date +%Y%m%d-%H%M%S`BACKUP_PATH=back_pathAPP_PATH=app_pathDEP_PATH=dep_pathJAR_NAME=$&#123;APP&#125;-xxx.jar###先确定是否存在备份目录，不存在则创建if [ ! -d "$&#123;BACKUP_PATH&#125;" ]then mkdir -p $&#123;BACKUP_PATH&#125;fi###备份原有jar包，加上时间后缀if [ -f "$&#123;APP_PATH&#125;/$&#123;JAR_NAME&#125;" ]then cp -v $&#123;APP_PATH&#125;/$&#123;JAR_NAME&#125; $&#123;BACKUP_PATH&#125;/$&#123;JAR_NAME&#125;_bak$&#123;NOW&#125; echo "backup is done !"else mkdir -p $&#123;APP_PATH&#125; echo "this is the first time delpoying the $APP !"fi###覆盖应用jar包，重启服务cp -v $&#123;DEP_PATH&#125;$&#123;JAR_NAME&#125; $&#123;APP_PATH&#125;/echo "copying $&#123;JAR_NAME&#125; to $&#123;APP_PATH&#125; down!"until ! [ $(ps -ef|grep "$&#123;JAR_NAME&#125;"|grep -v grep|awk '&#123;print$2&#125;') ];do echo -e "\033[32m [INFO]: killing the $&#123;APP&#125; process ... \033[0m" ps -ef|grep "$&#123;JAR_NAME&#125;"|grep -v grep|awk '&#123;print$2&#125;'|xargs kill sleep 3doneecho "restarting new $&#123;APP&#125; process..."nohup $&#123;JAVA_HOME&#125;/bin/java -jar $&#123;APP_PATH&#125;/$&#123;JAR_NAME&#125; &gt; /dev/null 2&gt;&amp;1 &amp;echo "The $&#123;APP&#125; has stated ! "ps -ef|grep "$&#123;JAR_NAME&#125;"|grep -v grepexit 以上。]]></content>
+      <categories>
+        <category>技术进步</category>
+      </categories>
+      <tags>
+        <tag>ansible</tag>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[jenkins+ansible持续集成之自动发布脚本]]></title>
+    <url>%2F2017%2F08%2F03%2Fansi-ci%2F</url>
+    <content type="text"><![CDATA[生产中使用jenkins已经很久了，很早就想总结一下自己在本地的使用情况。 首先说明jenkins无疑是近几年来最炙手可热的持续集成工具，功能强大，插件应有尽有，社区活跃，且被众多大公司实际生产中应用。关于jenkins，在此就不详细介绍了（主要是我也还远没了解透彻）。要想详细了解jenkins，请直接查看官方文档有详细提及。 主要应用点jenkins是一个功能强大的工具，但我司目前还只是用来做自动拉取代码、打包、发布这几项工作，主要涉及的工具是jenkins和ansible。使用jenkins自动拉取代码，自动构建，ansible完成发布工作。 简单讲解jenkins中主要是使用了maven（针对maven项目）和git两个插件.ansible则可以使用command_line、play_book或者role都可以。由于应用环境简单，我直接使用了ansible的command_line。 jenkins中的shell1sh /deploy/jenkins_deploy_$&#123;JOB_NAME&#125;.sh jenkinsdeploy${JOB_NAME}.sh123456789101112131415161718192021#定义应用变量和应用目录，发布其它应用只需要把APP的值修改成相应的,比如APP=demo.war#需要修改APP这一处即可APP=app_name#定义发布应用的脚本变量，发布其它应用需要把DEPLOY_APP的值修改成相应的，DEPLOY_APP=deploy_$&#123;APP&#125;.sh#定义部署服务器组webservers=$&#123;APP&#125;DEP_PATH=dep_pathPAK_PATH=pak_path#应用服务器创建deploy目录ansible $webservers -u appsvr -m shell -a "mkdir -p $&#123;DEP_PATH&#125;"#将war包复制到应用服务器的/deployansible $webservers -u appsvr -m copy -a "src=$&#123;PAK_PATH&#125;/$&#123;APP&#125;-1.0-SNAPSHOT.jar dest=$&#123;DEP_PATH&#125; owner=appsvr group=appsvr mode=0755 "#将构建ID号复制到应用服务器的/deploy下#ansible $webservers -u qappsom -m copy -a "src=/deploy/$LASTBUILD dest=/deploy/ owner=qappsom group=grpadm mode=0755 "#将部署脚本复制到应用服务器的/deploy下ansible $webservers -u appsvr -m copy -a "src=$&#123;DEP_PATH&#125;/$DEPLOY_APP dest=$&#123;DEP_PATH&#125; owner=appsvr group=appsvr mode=0644 "#执行发布脚本ansible $webservers -u appsvr -m shell -a "sh /$&#123;DEP_PATH&#125;/$&#123;DEPLOY_APP&#125;" -f 1 deploy_${JOB_NAME}.sh1234567891011121314151617181920212223242526272829303132333435363738#如果新增模块，只需复制本脚本，然后把APP的变量值改成相对应的模块名即可。比如,APP=oms#只需要改1处source /etc/profileAPP=app_nameNOW=`date +%Y%m%d-%H%M%S`BACKUP_PATH=back_pathAPP_PATH=app_pathDEP_PATH=dep_pathJAR_NAME=$&#123;APP&#125;-xxx.jar###先确定是否存在备份目录，不存在则创建if [ ! -d "$&#123;BACKUP_PATH&#125;" ]then mkdir -p $&#123;BACKUP_PATH&#125;fi###备份原有jar包，加上时间后缀if [ -f "$&#123;APP_PATH&#125;/$&#123;JAR_NAME&#125;" ]then cp -v $&#123;APP_PATH&#125;/$&#123;JAR_NAME&#125; $&#123;BACKUP_PATH&#125;/$&#123;JAR_NAME&#125;_bak$&#123;NOW&#125; echo "backup is done !"else mkdir -p $&#123;APP_PATH&#125; echo "this is the first time delpoying the $APP !"fi###覆盖应用jar包，重启服务cp -v $&#123;DEP_PATH&#125;$&#123;JAR_NAME&#125; $&#123;APP_PATH&#125;/echo "copying $&#123;JAR_NAME&#125; to $&#123;APP_PATH&#125; down!"until ! [ $(ps -ef|grep "$&#123;JAR_NAME&#125;"|grep -v grep|awk '&#123;print$2&#125;') ];do echo -e "\033[32m [INFO]: killing the $&#123;APP&#125; process ... \033[0m" ps -ef|grep "$&#123;JAR_NAME&#125;"|grep -v grep|awk '&#123;print$2&#125;'|xargs kill sleep 3doneecho "restarting new $&#123;APP&#125; process..."nohup $&#123;JAVA_HOME&#125;/bin/java -jar $&#123;APP_PATH&#125;/$&#123;JAR_NAME&#125; &gt; /dev/null 2&gt;&amp;1 &amp;echo "The $&#123;APP&#125; has stated ! "ps -ef|grep "$&#123;JAR_NAME&#125;"|grep -v grepexit 以上。]]></content>
+      <categories>
+        <category>技术进步</category>
+      </categories>
+      <tags>
+        <tag>ansible</tag>
+        <tag>jenkins</tag>
       </tags>
   </entry>
 </search>
