@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子. 小小抱怨一下不得不说备案真是一个让人抓狂的过程，之前对公司备案的繁琐有所经历，没想到个人备案也是不遑多让。服务器是在阿里云上，阿里云在备案方面帮着省去了很多的备案步骤，结果还是弄得我够呛，关于备案在之前的文章有详细提及。">
+<meta name="description" content="使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子.">
 <meta name="keywords" content="NexT,problems">
 <meta property="og:type" content="article">
 <meta property="og:title" content="next主题fullimage显示不居中问题">
 <meta property="og:url" content="http://jamesduan.com/2018/01/01/test-art/index.html">
 <meta property="og:site_name" content="James&#39;s Notes">
-<meta property="og:description" content="使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子. 小小抱怨一下不得不说备案真是一个让人抓狂的过程，之前对公司备案的繁琐有所经历，没想到个人备案也是不遑多让。服务器是在阿里云上，阿里云在备案方面帮着省去了很多的备案步骤，结果还是弄得我够呛，关于备案在之前的文章有详细提及。">
+<meta property="og:description" content="使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://jamesduan.com/images/james.jpg">
-<meta property="og:updated_time" content="2018-01-02T14:35:59.777Z">
+<meta property="og:updated_time" content="2018-01-08T13:46:14.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="next主题fullimage显示不居中问题">
-<meta name="twitter:description" content="使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子. 小小抱怨一下不得不说备案真是一个让人抓狂的过程，之前对公司备案的繁琐有所经历，没想到个人备案也是不遑多让。服务器是在阿里云上，阿里云在备案方面帮着省去了很多的备案步骤，结果还是弄得我够呛，关于备案在之前的文章有详细提及。">
+<meta name="twitter:description" content="使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子.">
 <meta name="twitter:image" content="http://jamesduan.com/images/james.jpg">
 
 
@@ -409,7 +409,8 @@
 
       
         <p>使用好hexo和next搭建好自己的博客之后，就到了等待备案的日子.<br><span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/images/james.jpg" class="full-image" alt="alt"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span></p>
-<h3 id="小小抱怨一下"><a href="#小小抱怨一下" class="headerlink" title="小小抱怨一下"></a>小小抱怨一下</h3><p>不得不说备案真是一个让人抓狂的过程，之前对公司备案的繁琐有所经历，没想到个人备案也是不遑多让。<br>服务器是在阿里云上，阿里云在备案方面帮着省去了很多的备案步骤，结果还是弄得我够呛，关于备案在<a href="http://www.baidu.com" target="_blank" rel="noopener">之前的文章</a>有详细提及。<br><a id="more"></a></p>
+<a id="more"></a>
+<h3 id="小小抱怨一下"><a href="#小小抱怨一下" class="headerlink" title="小小抱怨一下"></a>小小抱怨一下</h3><p>不得不说备案真是一个让人抓狂的过程，之前对公司备案的繁琐有所经历，没想到个人备案也是不遑多让。<br>服务器是在阿里云上，阿里云在备案方面帮着省去了很多的备案步骤，结果还是弄得我够呛，关于备案在<a href="http://www.baidu.com" target="_blank" rel="noopener">之前的文章</a>有详细提及。</p>
 <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>这次是在阅读iissnan大神文档的时候，发现了<a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="noopener">FullImage</a>的功能，觉得很酷炫，就想着用着试试。结果一直没达到文档中的效果，图片的尺寸是超出700px了，但是愣是不居中，效果有点尴尬。</p>
 <h3 id="解决思路和过程"><a href="#解决思路和过程" class="headerlink" title="解决思路和过程"></a>解决思路和过程</h3><p>开始猜测是next尺寸的问题，翻了半天，发现自己并没有使用<a href="https://github.com/iissnan/hexo-theme-next/blob/master/source/css/_variables/custom.styl" target="_blank" rel="noopener">custom.yml</a>调整过尺寸，并且尴尬的是不论怎么调整尺寸都还是一样。<br>秉持着”有啥不懂看官方文档”的宗旨，把作者的文档来来回回看了两遍，看自己的配置是否有问题，结果无功而返。<br>然后直接搜索引擎搜是否有朋友有过类似的困扰，也没有搜到。然后继续寻找NexT主题相关社区，想着提个问题什么的，也没找到靠谱活跃的社区。<br>最终在GitHub上找到了十几天前有位朋友开了个一模一样的issue <a href="https://github.com/iissnan/hexo-theme-next/issues/2039" target="_blank" rel="noopener">#2039</a>，并且已经在<a href="https://github.com/iissnan/hexo-theme-next/pull/2043" target="_blank" rel="noopener">#2043</a>得到了解决。</p>
 <h5 id="以上。"><a href="#以上。" class="headerlink" title="以上。"></a>以上。</h5>
@@ -618,7 +619,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -714,7 +715,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.3k</span>
+    <span title="Site words total count">2.4k</span>
   
 </div>
 <div class="powered-by">
