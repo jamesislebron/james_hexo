@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="blog,建站," />
+  <meta name="keywords" content="ansible,tips," />
 
 
 
@@ -79,23 +79,20 @@
 
 
 
-<meta name="description" content="自建blog的想法是早就有了的，但是无奈deadline才是第一生产力，这个事情一直拖到前一段时间才得以真正开展。本以为当hexo和NexT两个工具选好了之后，建站对我这个运维来说，不就是分分钟的事情么？可是…我终究还是naive啊。">
-<meta name="keywords" content="blog,建站">
+<meta name="description" content="自动化工具当中，一直使用的是ansible。而之所以选择它，不仅仅是因为agentless的便利，也是因为ansible的灵活，ad-hoc的简单易用，role的强大。在使用ansible的过程中，除了常用的各模块的使用方法，还积累了一些用得较少的经验，在此以tips的方式记录在此。">
+<meta name="keywords" content="ansible,tips">
 <meta property="og:type" content="article">
-<meta property="og:title" content="建站请绕道：备案辛酸路">
-<meta property="og:url" content="http://jamesduan.com/2017/10/13/beian/index.html">
+<meta property="og:title" content="ansible的一些小tips">
+<meta property="og:url" content="http://jamesduan.com/2018/01/12/ansible/index.html">
 <meta property="og:site_name" content="James&#39;s Notes">
-<meta property="og:description" content="自建blog的想法是早就有了的，但是无奈deadline才是第一生产力，这个事情一直拖到前一段时间才得以真正开展。本以为当hexo和NexT两个工具选好了之后，建站对我这个运维来说，不就是分分钟的事情么？可是…我终究还是naive啊。">
+<meta property="og:description" content="自动化工具当中，一直使用的是ansible。而之所以选择它，不仅仅是因为agentless的便利，也是因为ansible的灵活，ad-hoc的简单易用，role的强大。在使用ansible的过程中，除了常用的各模块的使用方法，还积累了一些用得较少的经验，在此以tips的方式记录在此。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://jamesduan.com/images/wdgcd.jpg">
-<meta property="og:image" content="http://jamesduan.com/images/beian.png">
-<meta property="og:image" content="http://jamesduan.com/images/bacs.png">
-<meta property="og:image" content="http://jamesduan.com/images/zcsb.png">
-<meta property="og:updated_time" content="2018-01-27T12:54:19.900Z">
+<meta property="og:image" content="http://jamesduan.com/images/ansible.png">
+<meta property="og:updated_time" content="2018-02-02T09:15:58.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="建站请绕道：备案辛酸路">
-<meta name="twitter:description" content="自建blog的想法是早就有了的，但是无奈deadline才是第一生产力，这个事情一直拖到前一段时间才得以真正开展。本以为当hexo和NexT两个工具选好了之后，建站对我这个运维来说，不就是分分钟的事情么？可是…我终究还是naive啊。">
-<meta name="twitter:image" content="http://jamesduan.com/images/wdgcd.jpg">
+<meta name="twitter:title" content="ansible的一些小tips">
+<meta name="twitter:description" content="自动化工具当中，一直使用的是ansible。而之所以选择它，不仅仅是因为agentless的便利，也是因为ansible的灵活，ad-hoc的简单易用，role的强大。在使用ansible的过程中，除了常用的各模块的使用方法，还积累了一些用得较少的经验，在此以tips的方式记录在此。">
+<meta name="twitter:image" content="http://jamesduan.com/images/ansible.png">
 
 
 
@@ -125,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://jamesduan.com/2017/10/13/beian/"/>
+  <link rel="canonical" href="http://jamesduan.com/2018/01/12/ansible/"/>
 
 
 
 
 
-  <title>建站请绕道：备案辛酸路 | James's Notes</title>
+  <title>ansible的一些小tips | James's Notes</title>
   
 
 
@@ -292,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jamesduan.com/2017/10/13/beian/">
+    <link itemprop="mainEntityOfPage" href="http://jamesduan.com/2018/01/12/ansible/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="James Duan">
@@ -309,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">建站请绕道：备案辛酸路</h1>
+          <h1 class="post-title" itemprop="name headline">ansible的一些小tips</h1>
         
 
         <div class="post-meta">
@@ -321,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T20:26:33+08:00">
-                2017-10-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-12T14:23:16+08:00">
+                2018-01-12
               </time>
             
 
@@ -344,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
+                  <a href="/categories/技术进步/" itemprop="url" rel="index">
+                    <span itemprop="name">技术进步</span>
                   </a>
                 </span>
 
@@ -362,9 +359,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/13/beian/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/12/ansible/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/13/beian/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/12/ansible/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -386,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,160
+                  1,435
                 </span>
               
 
@@ -411,16 +408,25 @@
       
 
       
-        <p>自建blog的想法是早就有了的，但是无奈deadline才是第一生产力，这个事情一直拖到前一段时间才得以真正开展。<br>本以为当hexo和NexT两个工具选好了之后，建站对我这个运维来说，不就是分分钟的事情么？<br>可是…我终究还是naive啊。<br><a id="more"></a></p>
-<span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="/images/wdgcd.jpg" class="full-image" alt="alt"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span>
-<h4 id="响应党的号召：备案光荣"><a href="#响应党的号召：备案光荣" class="headerlink" title="响应党的号召：备案光荣"></a>响应党的号召：备案光荣</h4><p>在namecheap上成功买了域名（PS.不得不说namecheap的服务是真的比狗爹好多了）；就着手在<a href="https://www.aliyun.com/" target="_blank" rel="noopener">aliyun</a>上买ecs，结果一犯二就买了华南的服务器，当时我并不知道我将会面对什么。<br>修改好dns_server，待其生效便调试了起来，然后就收到党的号召，需要备案。<br>一直以来，我都是一个根正苗红，又红又专的好青年，对于党的这种无理的要求，你问我支不支持，我当然支持。于是我就走上了备案这条不归路。</p>
-<h4 id="阿里云建站"><a href="#阿里云建站" class="headerlink" title="阿里云建站"></a>阿里云建站</h4><p>许久之前刚入行的时候，记得那时候备案是真心麻烦，需要带着你的各种证件，去到专门的“有关部门”，各种拍照，审查，必须经历很长的周期才能成功。<br>现在因为是在阿里云买了服务器，阿里也和审查机构简化了一些流程，现在只需要在阿里云上upload一些文件和证件，似乎就可以备案成功了。<br><img src="/images/beian.png"></p>
-<h4 id="一波三折"><a href="#一波三折" class="headerlink" title="一波三折"></a>一波三折</h4><p>之所以是“似乎”，是当我开开心心上传各种资料的时候，发现除了身份证、手机号之外，赫然还需要居住证。当时我就蒙蔽了，“身份证信息如非上海市需提供上海市‘临时居住证’或‘居住证’”。难道还专门为了这事去有关部门办一个暂住证？<br>知乎上一问，发现并不是所有地区的备案都需要暂住证，四川、福建等地方是不需要的。所以备案时你所在的地址填这些地方即可。<br>然后顺利拍摄好各种资料上传完成，可不到一天，就被短信告知备案初审就没通过。<br><img src="/images/bacs.png"><br>还是要夸一下阿里云的工作人员的服务，第一时间电话和我沟通，非常仔细地告诉我哪些地方需要修改，然后还给了我一些小建议。<br>还能怎么办呢？挨个解决问题呗。</p>
-<h5 id="域名持有者与主办单位不一致"><a href="#域名持有者与主办单位不一致" class="headerlink" title="域名持有者与主办单位不一致"></a>域名持有者与主办单位不一致</h5><p>其实就是我在namecheap上填写的所有者的名字并不是我的真名（全拼也可以），关于域名的所有者，到任意一个<a href="https://www.whois.com/" target="_blank" rel="noopener">whois</a>网站上可以查询到域名的所有者，当然要放开namecheap上的whois privacy才能查到，你可以试试自己的域名的whois是谁。<br>在namecheap的控制页上，找了半天还找不到修改域名所有者的操作，索性直接找了他们的客服帮忙修改，服务态度也是很好，虽然我的英语是真的烂。</p>
-<h5 id="网站名称不合格"><a href="#网站名称不合格" class="headerlink" title="网站名称不合格"></a>网站名称不合格</h5><p>网站名称不能为“xxx的个人网站”等各种要求，随便改一个名字就可以了。</p>
-<h5 id="未取得备案号禁止访问"><a href="#未取得备案号禁止访问" class="headerlink" title="未取得备案号禁止访问"></a>未取得备案号禁止访问</h5><p>我在申请好域名，配置好DNS之后就尝试着起了web服务调试了起来，好吧，这也是不行的，先关闭呗。</p>
-<h5 id="再次提交"><a href="#再次提交" class="headerlink" title="再次提交"></a>再次提交</h5><p>改好了以上三项，再次提交，很顺利地通过了初审。<br>然后过了大概三天，通知我已经提交管局审核，看起来一切都是那么顺利。<br>结果一天之后，再次传来审核失败的消息。<br><img src="/images/zcsb.png"><br>“域名不存在注册商验证库中”，简单来说呢，就是域名是国外的，是有关部门无法掌控的，有关部门希望你把域名转回到国内的服务商来托管。<br>简直了，当时心里有句MMP，也就大声讲了一万多遍。所以摆在我面前的唯一出路，就是将放在namecheap上的域名转回到万网上来。<br>出路是有出路，可是怎么就感觉那么操蛋呢？我只是想简简单单弄个小网站而已…<br>最后我毅然选择不走这条转域名的唯一出路，又弄了一台香港的服务器，项目往上一部署，DNS一修改，齐活。备案？爱谁谁吧！</p>
-<h4 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h4><p>写这么多，经验总结就是老老实实域名服务器都买国外的吧，别把时间浪费在备案上面了。</p>
+        <img src="/images/ansible.png">
+<p>自动化工具当中，一直使用的是<a href="https://www.ansible.com/" target="_blank" rel="noopener">ansible</a>。而之所以选择它，不仅仅是因为agentless的便利，也是因为ansible的灵活，ad-hoc的简单易用，role的强大。<br>在使用ansible的过程中，除了常用的各模块的使用方法，还积累了一些用得较少的经验，在此以tips的方式记录在此。</p>
+<a id="more"></a>
+<h4 id="批量建立信任连接"><a href="#批量建立信任连接" class="headerlink" title="批量建立信任连接"></a>批量建立信任连接</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible webserver  -m authorized_key -a "key=\"&#123;&#123;lookup('file','~/.ssh/id_rsa.pub')&#125;&#125;\" user=$USER" -u user -k</span><br></pre></td></tr></table></figure>
+<p>在使用ansible的时候，通常我们都认为它是agentless的，这也是它最吸引人的特点之一。但是严格意义上，ansible也是有agent的。<br>它的agent就是我们熟悉的sshd，只不过sshd是linux的内核标配，所以被大家熟知为无agent的自动化运维工具。<br>因此使用ansible之前，我们虽然不需要对目标主机安装agent，但需要对我们的目标主机做信任连接，这也就等价于安装agent的过程了。对大规模主机做信任连接是件费时费力的事，ansible的authorized_key模块就是为此而生的。<br>代码段中，key的值为公钥的路径，user为目标主机的目标用户，“-k”参数为手动输入密码一次。</p>
+<h4 id="动态使用inventory文件"><a href="#动态使用inventory文件" class="headerlink" title="动态使用inventory文件"></a>动态使用inventory文件</h4><p>一般来说，我们会将服务列表都放在同一个inventory（比如/etc/ansible/hosts）文件中；但在有些特殊应用场景（比如测试的时候），我们往往需要使用临时inventory文件。<br>ansible给我们提供“-i”参数手动指定inventory文件，ansible和ansible-playbook都可以使用这个参数。比如：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible -i ./tmp_host all  -m shell -a "echo test"</span><br></pre></td></tr></table></figure></p>
+<h4 id="ansible-forks"><a href="#ansible-forks" class="headerlink" title="ansible forks"></a>ansible forks</h4><p>Ansible与远端节点交流是通过并行的机制，并行机制的方式可以通过传递“–forks=#”或“-f #”参数设置，或者在配置文件里面编辑。<br>默认是保守的5个线程。如果你有足够的内存，你可以很容易的设置为50或者更多值。<br>所以经常有人诟病ansible效率太差，是因为他只用到了默认的5个线程。当需要执行大规模的批量操作时，根据需要调高这个参数即可：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible -i ./tmp_host all  -m shell -a "echo test" -f 30</span><br></pre></td></tr></table></figure></p>
+<p>快固然好，但有时候，我们也需要让我们的程序慢下来。当我们在做灰度发布的时候，往往是一批一批的更新我们的服务。但当我们的服务集群比较小，比如仅有两个实例的互备服务，我们在发布的时候为了不影响用户的体验，我们可以使用“-f”调小并发数，达到平滑发布的效果。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible tomcat_server  -m shell -a "sh /usr/local/tomcat/bin/shutdown.sh &amp;&amp; sh /usr/local/tomcat/bin/startup.sh" -f 1</span><br></pre></td></tr></table></figure></p>
+<h4 id="inventory的行为参数"><a href="#inventory的行为参数" class="headerlink" title="inventory的行为参数"></a>inventory的行为参数</h4><p>我们有时候需要在ansible inventory文件中配置ssh的一些参数，我们需要定义主机名，以及ansible的ssh客户端可以连接到的端口(22,2222,22300)等，那么ansible将这些变量命名为inventory的行为参数，如下：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">名称                           默认值                        描述</span><br><span class="line">ansible_ssh_host               主机的名字              SSH目的主机名或IP</span><br><span class="line">ansible_ssh_port               22                     SSH目的端口</span><br><span class="line">ansible_ssh_user               root                   SSH登录使用的用户名</span><br><span class="line">ansible_ssh_pass               none                   SSH认证所使用的密码</span><br><span class="line">ansible_connection             smart                  ansible使用何种连接模式连接到主机</span><br><span class="line">ansible_ssh_private_key_file   none                   SSH认证所使用的私钥</span><br><span class="line">ansible_shell_type             sh                     命令所使用的shell</span><br><span class="line">ansible_python_interpreter     /usr/bin/python        主机上的python解释器</span><br></pre></td></tr></table></figure></p>
+<h4 id="Group-Vars"><a href="#Group-Vars" class="headerlink" title="Group Vars"></a>Group Vars</h4><p>group vars写在inventory中：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[atlanta]</span><br><span class="line">host1</span><br><span class="line">host2</span><br><span class="line"></span><br><span class="line">[atlanta:vars]</span><br><span class="line">ntp_server=ntp.atlanta.example.com</span><br><span class="line">proxy=proxy.atlanta.example.com</span><br></pre></td></tr></table></figure></p>
+<p>group_vars文件也可位于一个目录下面，同时在inventory旁边，有一个可选的文件名在每个组后面。这是一个方便的位置来存放变量，提供给每个组，由其是复杂的数据结构，因此这些变量不需要嵌入在inventory文件或playbook文件里面。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File: /etc/ansible/group_vars/group</span><br><span class="line">admin_user: tom</span><br><span class="line">ansible_ssh_pass: password</span><br></pre></td></tr></table></figure></p>
+<h4 id="Host-Vars"><a href="#Host-Vars" class="headerlink" title="Host Vars"></a>Host Vars</h4><p>host vars写在inventory中：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[atlanta]</span><br><span class="line">host1 http_port=80 maxRequestsPerChild=808</span><br><span class="line">host2 http_port=303 maxRequestsPerChild=909</span><br></pre></td></tr></table></figure></p>
+<p>就像”Group Vars”，也有一个名称为“host_vars/”的目录在inventory文件旁，可以在invetory文件的主机名后面包含这个文件，使用 YAML 格式。这提供一个方便的位置分配变量给这个主机而不要在inventory文件里面嵌入太多变量。Host Vars 文件还可以用于定义复杂的在inventory文件里面不断出现的数据结构。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File: /etc/ansible/host_vars/host1</span><br><span class="line">admin_user: john</span><br></pre></td></tr></table></figure></p>
+<h4 id="异步和轮询"><a href="#异步和轮询" class="headerlink" title="异步和轮询"></a>异步和轮询</h4><p>ansible有时候要执行等待时间很长的操作,这个操作可能要持续很长时间,设置超过ssh的timeout.这时候你可以在step中指定async和poll来实现异步操作<br>async表示这个step的最长等待时长,如果设置为0,表示一直等待下去直到动作完成.<br>poll 表示检查step操作结果的间隔时长.<br>例一：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- name:</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">  hosts:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">  tasks:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">wair</span> <span class="string">for</span></span><br><span class="line"><span class="attr">      shell:</span> <span class="string">sleep</span> <span class="number">16</span></span><br><span class="line"><span class="attr">      async:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">      poll:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>这个step失败, 因为操作时间超过了最大等待时长<br>例二:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- name:</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">  hosts:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">  tasks:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">wair</span> <span class="string">for</span></span><br><span class="line"><span class="attr">      shell:</span> <span class="string">sleep</span> <span class="number">16</span></span><br><span class="line"><span class="attr">      async:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">      poll:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TASK: [wair for] **************************************************************</span><br><span class="line">&lt;job 621720484791.102116&gt; finished on localhost</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************</span><br></pre></td></tr></table></figure></p>
+<p>poll 设置为0, 表示不用等待执行结果, 该step执行成功<br>例三:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- name:</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">  hosts:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">  tasks:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">wair</span> <span class="string">for</span></span><br><span class="line"><span class="attr">      shell:</span> <span class="string">sleep</span> <span class="number">16</span></span><br><span class="line"><span class="attr">      async:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">      poll:</span> <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<p>结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> time ansible-playbook xiama.yml</span></span><br><span class="line">TASK: [wair for] **************************************************************</span><br><span class="line">changed: [localhost]</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************</span><br><span class="line">localhost                  : ok=2    changed=1    unreachable=0    failed=0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">real    0m16.693s</span><br></pre></td></tr></table></figure></p>
+<p>async设置为0, 会一直等待直到该操作完成.</p>
 <h5 id="以上。"><a href="#以上。" class="headerlink" title="以上。"></a>以上。</h5>
       
     </div>
@@ -470,7 +476,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jamesduan.com/2017/10/13/beian/" title="建站请绕道：备案辛酸路">http://jamesduan.com/2017/10/13/beian/</a>
+    <a href="http://jamesduan.com/2018/01/12/ansible/" title="ansible的一些小tips">http://jamesduan.com/2018/01/12/ansible/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -485,9 +491,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/ansible/" rel="tag"># ansible</a>
           
-            <a href="/tags/建站/" rel="tag"># 建站</a>
+            <a href="/tags/tips/" rel="tag"># tips</a>
           
         </div>
       
@@ -500,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/03/ansi-ci/" rel="next" title="jenkins+ansible持续集成之自动发布脚本">
-                <i class="fa fa-chevron-left"></i> jenkins+ansible持续集成之自动发布脚本
+              <a href="/2018/01/01/test-art/" rel="next" title="next主题fullimage显示不居中问题">
+                <i class="fa fa-chevron-left"></i> next主题fullimage显示不居中问题
               </a>
             
           </div>
@@ -509,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/23/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -692,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#响应党的号召：备案光荣"><span class="nav-number">1.</span> <span class="nav-text">响应党的号召：备案光荣</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阿里云建站"><span class="nav-number">2.</span> <span class="nav-text">阿里云建站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一波三折"><span class="nav-number">3.</span> <span class="nav-text">一波三折</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#域名持有者与主办单位不一致"><span class="nav-number">3.1.</span> <span class="nav-text">域名持有者与主办单位不一致</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网站名称不合格"><span class="nav-number">3.2.</span> <span class="nav-text">网站名称不合格</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#未取得备案号禁止访问"><span class="nav-number">3.3.</span> <span class="nav-text">未取得备案号禁止访问</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#再次提交"><span class="nav-number">3.4.</span> <span class="nav-text">再次提交</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#经验总结"><span class="nav-number">4.</span> <span class="nav-text">经验总结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#以上。"><span class="nav-number">4.1.</span> <span class="nav-text">以上。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#批量建立信任连接"><span class="nav-number">1.</span> <span class="nav-text">批量建立信任连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态使用inventory文件"><span class="nav-number">2.</span> <span class="nav-text">动态使用inventory文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ansible-forks"><span class="nav-number">3.</span> <span class="nav-text">ansible forks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#inventory的行为参数"><span class="nav-number">4.</span> <span class="nav-text">inventory的行为参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Group-Vars"><span class="nav-number">5.</span> <span class="nav-text">Group Vars</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Host-Vars"><span class="nav-number">6.</span> <span class="nav-text">Host Vars</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步和轮询"><span class="nav-number">7.</span> <span class="nav-text">异步和轮询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#以上。"><span class="nav-number">7.1.</span> <span class="nav-text">以上。</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -877,9 +879,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://jamesduan.com/2017/10/13/beian/';
-          this.page.identifier = '2017/10/13/beian/';
-          this.page.title = '建站请绕道：备案辛酸路';
+          this.page.url = 'http://jamesduan.com/2018/01/12/ansible/';
+          this.page.identifier = '2018/01/12/ansible/';
+          this.page.title = 'ansible的一些小tips';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://James.disqus.com/embed.js';
