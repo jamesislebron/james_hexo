@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ansible,tips," />
+  <meta name="keywords" content="tips,ansible," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="自动化工具当中，一直使用的是ansible。而之所以选择它，不仅仅是因为agentless的便利，也是因为ansible的灵活，ad-hoc的简单易用，role的强大。在使用ansible的过程中，除了常用的各模块的使用方法，还积累了一些用得较少的经验，在此以tips的方式记录在此。">
-<meta name="keywords" content="ansible,tips">
+<meta name="keywords" content="tips,ansible">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ansible的一些小tips">
 <meta property="og:url" content="http://jamesduan.com/2018/01/12/ansible/index.html">
@@ -425,7 +425,7 @@
 <p>这个step失败, 因为操作时间超过了最大等待时长<br>例二:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- name:</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">  hosts:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">  tasks:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">wair</span> <span class="string">for</span></span><br><span class="line"><span class="attr">      shell:</span> <span class="string">sleep</span> <span class="number">16</span></span><br><span class="line"><span class="attr">      async:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">      poll:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
 <p>结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TASK: [wair for] **************************************************************</span><br><span class="line">&lt;job 621720484791.102116&gt; finished on localhost</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************</span><br></pre></td></tr></table></figure></p>
 <p>poll 设置为0, 表示不用等待执行结果, 该step执行成功<br>例三:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">- name:</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">  hosts:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">  tasks:</span></span><br><span class="line"><span class="attr">    - name:</span> <span class="string">wair</span> <span class="string">for</span></span><br><span class="line"><span class="attr">      shell:</span> <span class="string">sleep</span> <span class="number">16</span></span><br><span class="line"><span class="attr">      async:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">      poll:</span> <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
-<p>结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> time ansible-playbook xiama.yml</span></span><br><span class="line">TASK: [wair for] **************************************************************</span><br><span class="line">changed: [localhost]</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************</span><br><span class="line">localhost                  : ok=2    changed=1    unreachable=0    failed=0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">real    0m16.693s</span><br></pre></td></tr></table></figure></p>
+<p>结果:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> time ansible-playbook xiama.yml</span><br><span class="line">TASK: [wair for] **************************************************************</span><br><span class="line">changed: [localhost]</span><br><span class="line"></span><br><span class="line">PLAY RECAP ********************************************************************</span><br><span class="line">localhost                  : ok=2    changed=1    unreachable=0    failed=0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">real    0m16.693s</span><br></pre></td></tr></table></figure></p>
 <p>async设置为0, 会一直等待直到该操作完成.</p>
 <h5 id="以上。"><a href="#以上。" class="headerlink" title="以上。"></a>以上。</h5>
       
@@ -491,9 +491,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ansible/" rel="tag"># ansible</a>
-          
             <a href="/tags/tips/" rel="tag"># tips</a>
+          
+            <a href="/tags/ansible/" rel="tag"># ansible</a>
           
         </div>
       
@@ -611,7 +611,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -633,7 +633,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -729,7 +729,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.1k</span>
+    <span title="Site words total count">6.5k</span>
   
 </div>
 <div class="powered-by">
