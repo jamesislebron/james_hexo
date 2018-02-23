@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="NexT,blog," />
+  <meta name="keywords" content="time_wait,网络,排错," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="这是个人网站的第一篇博客，标题就直接用了‘Hello World’。刚开始接触CS的时候，总是略微有些嫌弃‘Hello World’的，可能是这个梗被用得太多，有点嚼烂了的感觉。">
-<meta name="keywords" content="NexT,blog">
+<meta name="description" content="time_wait的问题对于经常处理网络问题的同学来说，time_wait是无法回避的问题之一。经常发生的场景是：一旦有用户在反馈“网络变慢了”。第一件做的事情就是：1netstat -a | grep TIME_WAIT | wc -l 一看吓一跳，好几千个TIME_WAIT。">
+<meta name="keywords" content="time_wait,网络,排错">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://jamesduan.com/2017/12/23/hello-world/index.html">
+<meta property="og:title" content="time_wait详解[转载]">
+<meta property="og:url" content="http://jamesduan.com/2017/11/03/net_tw/index.html">
 <meta property="og:site_name" content="James&#39;s Notes">
-<meta property="og:description" content="这是个人网站的第一篇博客，标题就直接用了‘Hello World’。刚开始接触CS的时候，总是略微有些嫌弃‘Hello World’的，可能是这个梗被用得太多，有点嚼烂了的感觉。">
+<meta property="og:description" content="time_wait的问题对于经常处理网络问题的同学来说，time_wait是无法回避的问题之一。经常发生的场景是：一旦有用户在反馈“网络变慢了”。第一件做的事情就是：1netstat -a | grep TIME_WAIT | wc -l 一看吓一跳，好几千个TIME_WAIT。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T13:33:00.407Z">
+<meta property="og:image" content="http://jamesduan.com/images/tcp_close.png">
+<meta property="og:updated_time" content="2018-02-23T06:27:11.945Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="这是个人网站的第一篇博客，标题就直接用了‘Hello World’。刚开始接触CS的时候，总是略微有些嫌弃‘Hello World’的，可能是这个梗被用得太多，有点嚼烂了的感觉。">
+<meta name="twitter:title" content="time_wait详解[转载]">
+<meta name="twitter:description" content="time_wait的问题对于经常处理网络问题的同学来说，time_wait是无法回避的问题之一。经常发生的场景是：一旦有用户在反馈“网络变慢了”。第一件做的事情就是：1netstat -a | grep TIME_WAIT | wc -l 一看吓一跳，好几千个TIME_WAIT。">
+<meta name="twitter:image" content="http://jamesduan.com/images/tcp_close.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://jamesduan.com/2017/12/23/hello-world/"/>
+  <link rel="canonical" href="http://jamesduan.com/2017/11/03/net_tw/"/>
 
 
 
 
 
-  <title>Hello World | James's Notes</title>
+  <title>time_wait详解[转载] | James's Notes</title>
   
 
 
@@ -287,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jamesduan.com/2017/12/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://jamesduan.com/2017/11/03/net_tw/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="James Duan">
@@ -304,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">time_wait详解[转载]</h1>
         
 
         <div class="post-meta">
@@ -316,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T14:23:21+08:00">
-                2017-12-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T19:20:33+08:00">
+                2017-11-03
               </time>
             
 
@@ -339,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
+                  <a href="/categories/技术进步/" itemprop="url" rel="index">
+                    <span itemprop="name">技术进步</span>
                   </a>
                 </span>
 
@@ -357,9 +359,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/23/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/2017/11/03/net_tw/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/23/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/11/03/net_tw/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -381,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  331
+                  4,448
                 </span>
               
 
@@ -406,13 +408,98 @@
       
 
       
-        <p>这是个人网站的第一篇博客，标题就直接用了‘Hello World’。<br>刚开始接触CS的时候，总是略微有些嫌弃‘Hello World’的，可能是这个梗被用得太多，有点嚼烂了的感觉。<br><a id="more"></a><br>不过随着时间的推移，越来越喜欢‘Hello world’这个词了。因为每次屏幕上出现的‘Hello World’，总是伴随着新知识的学习，或是新作品的诞生！就像棋手落下的第一子、画家挥下的第一笔…<br>矫情的废话不多说，James’s note主要会记录以下的一些内容。</p>
-<h3 id="Tech-Blog"><a href="#Tech-Blog" class="headerlink" title="Tech Blog"></a>Tech Blog</h3><p>James’s note最最主要的作用就是记录关于技术方面的博客，文章，思考，也就是类似于笔记本的作用。关于技术的，不论是长篇大论，还是自己工作中接触到问题的反思和总结,抑或是一个代码片段，都会记录在这边。</p>
-<h3 id="Note-Life"><a href="#Note-Life" class="headerlink" title="Note Life"></a>Note Life</h3><p>另一方面，主要会记录自己的一些生活经历，出行，有感等等。</p>
-<h3 id="Something-Else"><a href="#Something-Else" class="headerlink" title="Something Else"></a>Something Else</h3><p>最后，就是一些七七八八的，想要随便写写的杂文了。</p>
-<h3 id="At-Last"><a href="#At-Last" class="headerlink" title="At Last"></a>At Last</h3><p>希望自己能够多坚持一些，长期，持续地维护好这个主页，在这期间也能持续地不断成长！</p>
-<p>More info: <a href="https://www.jamesduan.com" target="_blank" rel="noopener">HomePage</a></p>
-<h5 id="以上。"><a href="#以上。" class="headerlink" title="以上。"></a>以上。</h5>
+        <h4 id="time-wait的问题"><a href="#time-wait的问题" class="headerlink" title="time_wait的问题"></a>time_wait的问题</h4><p>对于经常处理网络问题的同学来说，time_wait是无法回避的问题之一。<br>经常发生的场景是：一旦有用户在反馈“网络变慢了”。第一件做的事情就是：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -a | grep TIME_WAIT | wc -l</span><br></pre></td></tr></table></figure></p>
+<p>一看吓一跳，好几千个TIME_WAIT。<br><a id="more"></a><br>然后就是百度或者google，搜索“too many time_wait”，排在最靠前的解决办法，往往就是打开sysctl.conf，修改下面三个参数：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_tw_recycle = 1</span><br><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">net.ipv4.tcp_timestamps = 1</span><br></pre></td></tr></table></figure></p>
+<p>你也会被告知，开启tw_recylce和tw_reuse一定需要timestamps的支持，而且这些配置一般不建议开启，但是对解决TIME_WAIT很多的问题，有很好的用处。<br>接下来，你就直接修改了这几个参数，reload一下，发现，果然，没几分钟，TIME_WAIT的数量真的降低了，也没发现哪个用户说有问题，然后就没有然后了。<br>做到这一步，相信50%或者更高比例的开发就已经止步了。问题好像解决了，但是，要彻底理解并解决这个问题，可能就没这么简单，或者说，还有很长的路要走！</p>
+<h4 id="什么是TIME-WAIT和CLOSE-WAIT"><a href="#什么是TIME-WAIT和CLOSE-WAIT" class="headerlink" title="什么是TIME-WAIT和CLOSE-WAIT"></a>什么是TIME-WAIT和CLOSE-WAIT</h4><p>首先，要解决问题，就要先理解问题。随便改两行代码或者配置，发现bug“没有了”，也不是bug真的没有了，只是隐藏在更深的地方，你没有发现，或者以你的知识水平，你无法发现而已。<br>大家知道，由于socket是全双工的工作模式，一个socket的关闭，是需要四次握手来完成的。<br><img src="/images/tcp_close.png"></p>
+<pre><code>* 主动关闭连接的一方，调用close()；协议层发送FIN包
+* 被动关闭的一方收到FIN包后，协议层回复ACK；然后被动关闭的一方，进入CLOSE_WAIT状态，主动关闭的一方等待对方关闭，则进入FIN_WAIT_2状态；此时，主动关闭的一方 等待 被动关闭一方的应用程序，调用close操作
+* 被动关闭的一方在完成所有数据发送后，调用close()操作；此时，协议层发送FIN包给主动关闭的一方，等待对方的ACK，被动关闭的一方进入LAST_ACK状态；
+* 主动关闭的一方收到FIN包，协议层回复ACK；此时，主动关闭连接的一方，进入TIME_WAIT状态；而被动关闭的一方，进入CLOSED状态
+* 等待2MSL时间，主动关闭的一方，结束TIME_WAIT，进入CLOSED状态
+</code></pre><p>通过上面的一次socket关闭操作，你可以得出以下几点：</p>
+<pre><code>1. 主动关闭连接的一方 - 也就是主动调用socket的close操作的一方，最终会进入TIME_WAIT状态
+2. 被动关闭连接的一方，有一个中间状态，即CLOSE_WAIT，因为协议层在等待上层的应用程序，主动调用close操作后才主动关闭这条连接
+3. TIME_WAIT会默认等待2MSL时间后，才最终进入CLOSED状态；
+4. 在一个连接没有进入CLOSED状态之前，这个连接是不能被重用的！
+</code></pre><p>所以，这里凭你的直觉，TIME_WAIT并不可怕（not really，后面讲），CLOSE_WAIT才可怕，因为CLOSE_WAIT很多，表示说要么是你的应用程序写的有问题，没有合适的关闭socket；要么是说，你的服务器CPU处理不过来（CPU太忙）或者你的应用程序一直睡眠到其它地方(锁，或者文件I/O等等)，你的应用程序获得不到合适的调度时间，造成你的程序没法真正的执行close操作。<br>这里又出现两个问题：</p>
+<pre><code>1. 上文提到的连接重用，那连接到底是个什么概念？
+2. 协议层为什么要设计一个TIME_WAIT状态？这个状态为什么默认等待2MSL时间才会进入CLOSED
+</code></pre><p>先解释清楚这两个问题，我们再来看，开头提到的几个网络配置究竟有什么用，以及TIME_WAIT的后遗症问题。</p>
+<h4 id="Socket连接"><a href="#Socket连接" class="headerlink" title="Socket连接"></a>Socket连接</h4><p>大家经常提socket，那么，到底什么是一个socket？其实，socket就是一个 五元组，包括：</p>
+<pre><code>1. 源IP
+2. 源端口
+3. 目的IP
+4. 目的端口
+5. 类型：TCP or UDP
+</code></pre><p>这个五元组，即标识了一条可用的连接。注意，有很多人把一个socket定义成四元组，也就是 源IP:源端口 + 目的IP:目的端口，这个定义是不正确的。</p>
+<p>例如，如果你的本地出口IP是180.172.35.150，那么你的浏览器在连接某一个Web服务器，例如百度的时候，这条socket连接的四元组可能就是：</p>
+<p>[180.172.35.150:45678, tcp, 180.97.33.108:80]</p>
+<p>源IP为你的出口IP地址 180.172.35.150，源端口为随机端口 45678，目的IP为百度的某一个负载均衡服务器IP 180.97.33.108，端口为HTTP标准的80端口。</p>
+<p>如果这个时候，你再开一个浏览器，访问百度，将会产生一条新的连接：</p>
+<p>[180.172.35.150:43678, tcp, 180.97.33.108:80]</p>
+<p>这条新的连接的源端口为一个新的随机端口 43678。</p>
+<h4 id="TIME-WAIT的意义"><a href="#TIME-WAIT的意义" class="headerlink" title="TIME_WAIT的意义"></a>TIME_WAIT的意义</h4><p>如果我们来做个类比的话，TIME_WAIT的出现，对应的是你的程序里的异常处理，它的出现，就是为了解决网络的丢包和网络不稳定所带来的其他问题：</p>
+<p>第一，防止前一个连接【五元组，我们继续以 180.172.35.150:45678, tcp, 180.97.33.108:80 为例】上延迟的数据包或者丢失重传的数据包，被后面复用的连接【前一个连接关闭后，此时你再次访问百度，新的连接可能还是由180.172.35.150:45678, tcp, 180.97.33.108:80 这个五元组来表示，也就是源端口凑巧还是45678】错误的接收（异常：数据丢了，或者传输太慢了），参见下图：</p>
+<pre><code>* SEQ=3的数据包丢失，重传第一次，没有得到ACK确认
+* 如果没有TIME_WAIT，或者TIME_WAIT时间非常端，那么关闭的连接【180.172.35.150:45678, tcp, 180.97.33.108:80 的状态变为了CLOSED，源端口可被再次利用】，马上被重用【对180.97.33.108:80新建的连接，复用了之前的随机端口45678】，并连续发送SEQ=1,2 的数据包
+* 此时，前面的连接上的SEQ=3的数据包再次重传，同时，seq的序号刚好也是3（这个很重要，不然，SEQ的序号对不上，就会RST掉），此时，前面一个连接上的数据被后面的一个连接错误的接收
+</code></pre><p>第二，确保连接方能在时间范围内，关闭自己的连接。其实，也是因为丢包造成的，参见下图：</p>
+<pre><code>* 主动关闭方关闭了连接，发送了FIN；
+* 被动关闭方回复ACK同时也执行关闭动作，发送FIN包；此时，被动关闭的一方进入LAST_ACK状态
+* 主动关闭的一方回去了ACK，主动关闭一方进入TIME_WAIT状态；
+* 但是最后的ACK丢失，被动关闭的一方还继续停留在LAST_ACK状态
+* 此时，如果没有TIME_WAIT的存在，或者说，停留在TIME_WAIT上的时间很短，则主动关闭的一方很快就进入了CLOSED状态，也即是说，如果此时新建一个连接，源随机端口如果被复用，在connect发送SYN包后，由于被动方仍认为这条连接【五元组】还在等待ACK，但是却收到了SYN，则被动方会回复RST
+* 造成主动创建连接的一方，由于收到了RST，则连接无法成功
+</code></pre><p>所以，你看到了，TIME_WAIT的存在是很重要的，如果强制忽略TIME_WAIT，还是有很高的机率，造成数据粗乱，或者短暂性的连接失败。</p>
+<p>那么，为什么说，TIME_WAIT状态会是持续2MSL（2倍的max segment lifetime）呢？这个时间可以通过修改内核参数调整吗？第一，这个2MSL，是RFC 793里定义的，参见RFC的截图标红的部分：</p>
+<h4 id="TIME-WAIT对资源的占用"><a href="#TIME-WAIT对资源的占用" class="headerlink" title="TIME_WAIT对资源的占用"></a>TIME_WAIT对资源的占用</h4><p>如果你通过 ss -tan state time-wait | wc -l 发现，系统中有很多TIME_WAIT，很多人都会紧张。多少算多呢？几百几千？如果是这个量级，其实真的没必要紧张。第一，这个量级，因为TIME_WAIT所占用的内存很少很少；因为记录和寻找可用的local port所消耗的CPU也基本可以忽略。</p>
+<p>会占用内存吗？当然！任何你可以看到的数据，内核里都需要有相关的数据结构来保存这个数据啊。一条Socket处于TIME_WAIT状态，它也是一条“存在”的socket，内核里也需要有保持它的数据：</p>
+<pre><code>1. 内核里有保存所有连接的一个hash table，这个hash table里面既包含TIME_WAIT状态的连接，也包含其他状态的连接。主要用于有新的数据到来的时候，从这个hash table里快速找到这条连接。不同的内核对这个hash table的大小设置不同，你可以通过dmesg命令去找到你的内核设置的大小：
+
+2. 还有一个hash table用来保存所有的bound ports，主要用于可以快速的找到一个可用的端口或者随机端口：
+</code></pre><p>由于内核需要保存这些数据，必然，会占用一定的内存。<br>会消耗CPU吗？当然！每次找到一个随机端口，还是需要遍历一遍bound ports的吧，这必然需要一些CPU时间。<br>TIME_WAIT很多，既占内存又消耗CPU，这也是为什么很多人，看到TIME_WAIT很多，就蠢蠢欲动的想去干掉他们。其实，如果你再进一步去研究，1万条TIME_WAIT的连接，也就多消耗1M左右的内存，对现代的很多服务器，已经不算什么了。至于CPU，能减少它当然更好，但是不至于因为1万多个hash item就担忧。<br>如果，你真的想去调优，还是需要搞清楚别人的调优建议，以及调优参数背后的意义！</p>
+<h4 id="TIME-WAIT调优的几个参数"><a href="#TIME-WAIT调优的几个参数" class="headerlink" title="TIME_WAIT调优的几个参数"></a>TIME_WAIT调优的几个参数</h4><p>在具体的图例之前，我们还是先解析一下相关的几个参数存在的意义。</p>
+<h5 id="net-ipv4-tcp-timestamps"><a href="#net-ipv4-tcp-timestamps" class="headerlink" title="net.ipv4.tcp_timestamps"></a>net.ipv4.tcp_timestamps</h5><p>RFC 1323 在 TCP Reliability一节里，引入了timestamp的TCP option，两个4字节的时间戳字段，其中第一个4字节字段用来保存发送该数据包的时间，第二个4字节字段用来保存最近一次接收对方发送到数据的时间。有了这两个时间字段，也就有了后续优化的余地。</p>
+<p>tcp_tw_reuse 和 tcp_tw_recycle就依赖这些时间字段。</p>
+<h5 id="net-ipv4-tcp-tw-reuse"><a href="#net-ipv4-tcp-tw-reuse" class="headerlink" title="net.ipv4.tcp_tw_reuse"></a>net.ipv4.tcp_tw_reuse</h5><p>字面意思，reuse TIME_WAIT状态的连接。</p>
+<p>时刻记住一条socket连接，就是那个五元组，出现TIME_WAIT状态的连接，一定出现在主动关闭连接的一方。所以，当主动关闭连接的一方，再次向对方发起连接请求的时候（例如，客户端关闭连接，客户端再次连接服务端，此时可以复用了；负载均衡服务器，主动关闭后端的连接，当有新的HTTP请求，负载均衡服务器再次连接后端服务器，此时也可以复用），可以复用TIME_WAIT状态的连接。</p>
+<p>通过字面解释，以及例子说明，你看到了，tcp_tw_reuse应用的场景：某一方，需要不断的通过“短连接”连接其他服务器，总是自己先关闭连接(TIME_WAIT在自己这方)，关闭后又不断的重新连接对方。</p>
+<p>那么，当连接被复用了之后，延迟或者重发的数据包到达，新的连接怎么判断，到达的数据是属于复用后的连接，还是复用前的连接呢？那就需要依赖前面提到的两个时间字段了。复用连接后，这条连接的时间被更新为当前的时间，当延迟的数据达到，延迟数据的时间是小于新连接的时间，所以，内核可以通过时间判断出，延迟的数据可以安全的丢弃掉了。</p>
+<p>这个配置，依赖于连接双方，同时对timestamps的支持。同时，这个配置，仅仅影响outbound连接，即做为客户端的角色，连接服务端[connect(dest_ip, dest_port)]时复用TIME_WAIT的socket。</p>
+<h5 id="net-ipv4-tcp-tw-recycle"><a href="#net-ipv4-tcp-tw-recycle" class="headerlink" title="net.ipv4.tcp_tw_recycle"></a>net.ipv4.tcp_tw_recycle</h5><p>字面意思，销毁掉 TIME_WAIT。</p>
+<p>当开启了这个配置后，内核会快速的回收处于TIME_WAIT状态的socket连接。多快？不再是2MSL，而是一个RTO（retransmission timeout，数据包重传的timeout时间）的时间，这个时间根据RTT动态计算出来，但是远小于2MSL。</p>
+<p>有了这个配置，还是需要保障 丢失重传或者延迟的数据包，不会被新的连接(注意，这里不再是复用了，而是之前处于TIME_WAIT状态的连接已经被destroy掉了，新的连接，刚好是和某一个被destroy掉的连接使用了相同的五元组而已)所错误的接收。在启用该配置，当一个socket连接进入TIME_WAIT状态后，内核里会记录包括该socket连接对应的五元组中的对方IP等在内的一些统计数据，当然也包括从该对方IP所接收到的最近的一次数据包时间。当有新的数据包到达，只要时间晚于内核记录的这个时间，数据包都会被统统的丢掉。</p>
+<p>这个配置，依赖于连接双方对timestamps的支持。同时，这个配置，主要影响到了inbound的连接（对outbound的连接也有影响，但是不是复用），即做为服务端角色，客户端连进来，服务端主动关闭了连接，TIME_WAIT状态的socket处于服务端，服务端快速的回收该状态的连接。</p>
+<p>由此，如果客户端处于NAT的网络(多个客户端，同一个IP出口的网络环境)，如果配置了tw_recycle，就可能在一个RTO的时间内，只能有一个客户端和自己连接成功(不同的客户端发包的时间不一致，造成服务端直接把数据包丢弃掉)。</p>
+<h4 id="实践案例和调优参数"><a href="#实践案例和调优参数" class="headerlink" title="实践案例和调优参数"></a>实践案例和调优参数</h4><p>我尽量尝试用文字解释清楚，但是，来点案例和图示，应该有助于我们彻底理解。</p>
+<p>我们来看这样一个网络情况：</p>
+<pre><code>1. 客户端IP地址为：180.172.35.150，我们可以认为是浏览器
+2. 负载均衡有两个IP，外网IP地址为 115.29.253.156，内网地址为10.162.74.10；外网地址监听80端口
+3. 负载均衡背后有两台Web服务器，一台IP地址为 10.162.74.43，监听80端口；另一台为 10.162.74.44，监听 80 端口
+4. Web服务器会连接数据服务器，IP地址为 10.162.74.45，监听 3306 端口
+</code></pre><p>这种简单的架构下，我们来看看，在不同的情况下，我们今天谈论的tw_reuse/tw_recycle对网络连接的影响。</p>
+<p>先做个假定：</p>
+<pre><code>1. 客户端通过HTTP/1.1连接负载均衡，也就是说，HTTP协议投Connection为keep-alive，所以我们假定，客户端 对 负载均衡服务器 的socket连接，客户端会断开连接，所以，TIME_WAIT出现在客户端
+2. Web服务器和MySQL服务器的连接，我们假定，Web服务器上的程序在连接结束的时候，调用close操作关闭socket资源连接，所以，TIME_WAIT出现在 Web 服务器端。
+</code></pre><p>那么，在这种假定下：</p>
+<pre><code>1. Web服务器上，肯定可以配置开启的配置：tcp_tw_reuse；如果Web服务器有很多连向DB服务器的连接，可以保证socket连接的复用。
+2. 那么，负载均衡服务器和Web服务器，谁先关闭连接，则决定了我们怎么配置tcp_tw_reuse/tcp_tw_recycle了
+</code></pre><p>方案一：负载均衡服务器 首先关闭连接</p>
+<p>在这种情况下，因为负载均衡服务器对Web服务器的连接，TIME_WAIT大都出现在负载均衡服务器上，所以，在负载均衡服务器上的配置：</p>
+<pre><code>* net.ipv4.tcp_tw_reuse = 1 //尽量复用连接
+* net.ipv4.tcp_tw_recycle = 0 //不能保证客户端不在NAT的网络啊
+</code></pre><p>在Web服务器上的配置为：</p>
+<pre><code>* net.ipv4.tcp_tw_reuse = 1 //这个配置主要影响的是Web服务器到DB服务器的连接复用
+* net.ipv4.tcp_tw_recycle： 设置成1和0都没有任何意义。想一想，在负载均衡和它的连接中，它是服务端，但是TIME_WAIT出现在负载均衡服务器上；它和DB的连接，它是客户端，recycle对它并没有什么影响，关键是reuse
+</code></pre><p>方案二：Web服务器首先关闭来自负载均衡服务器的连接</p>
+<p>在这种情况下，Web服务器变成TIME_WAIT的重灾区。负载均衡对Web服务器的连接，由Web服务器首先关闭连接，TIME_WAIT出现在Web服务器上；Web服务器对DB服务器的连接，由Web服务器关闭连接，TIME_WAIT也出现在它身上，此时，负载均衡服务器上的配置：</p>
+<pre><code>* net.ipv4.tcp_tw_reuse：0 或者 1 都行，都没有实际意义
+* net.ipv4.tcp_tw_recycle=0 //一定是关闭recycle
+</code></pre><p>在Web服务器上的配置：</p>
+<pre><code>* net.ipv4.tcp_tw_reuse = 1 //这个配置主要影响的是Web服务器到DB服务器的连接复用
+* net.ipv4.tcp_tw_recycle=1 //由于在负载均衡和Web服务器之间并没有NAT的网络，可以考虑开启recycle，加速由于负载均衡和Web服务器之间的连接造成的大量TIME_WAIT
+</code></pre><h5 id="以上。"><a href="#以上。" class="headerlink" title="以上。"></a>以上。</h5>
       
     </div>
     
@@ -461,7 +548,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://jamesduan.com/2017/12/23/hello-world/" title="Hello World">http://jamesduan.com/2017/12/23/hello-world/</a>
+    <a href="http://jamesduan.com/2017/11/03/net_tw/" title="time_wait详解[转载]">http://jamesduan.com/2017/11/03/net_tw/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -476,9 +563,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NexT/" rel="tag"># NexT</a>
+            <a href="/tags/time-wait/" rel="tag"># time_wait</a>
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
+            <a href="/tags/排错/" rel="tag"># 排错</a>
           
         </div>
       
@@ -491,8 +580,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/13/beian/" rel="next" title="建站请绕道：备案辛酸路">
-                <i class="fa fa-chevron-left"></i> 建站请绕道：备案辛酸路
+              <a href="/2017/08/03/ansi-ci/" rel="next" title="jenkins+ansible持续集成之自动发布脚本">
+                <i class="fa fa-chevron-left"></i> jenkins+ansible持续集成之自动发布脚本
               </a>
             
           </div>
@@ -600,7 +689,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +711,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -683,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tech-Blog"><span class="nav-number">1.</span> <span class="nav-text">Tech Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-Life"><span class="nav-number">2.</span> <span class="nav-text">Note Life</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Something-Else"><span class="nav-number">3.</span> <span class="nav-text">Something Else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#At-Last"><span class="nav-number">4.</span> <span class="nav-text">At Last</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#以上。"><span class="nav-number">4.0.1.</span> <span class="nav-text">以上。</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#time-wait的问题"><span class="nav-number">1.</span> <span class="nav-text">time_wait的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是TIME-WAIT和CLOSE-WAIT"><span class="nav-number">2.</span> <span class="nav-text">什么是TIME-WAIT和CLOSE-WAIT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Socket连接"><span class="nav-number">3.</span> <span class="nav-text">Socket连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT的意义"><span class="nav-number">4.</span> <span class="nav-text">TIME_WAIT的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT对资源的占用"><span class="nav-number">5.</span> <span class="nav-text">TIME_WAIT对资源的占用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TIME-WAIT调优的几个参数"><span class="nav-number">6.</span> <span class="nav-text">TIME_WAIT调优的几个参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#net-ipv4-tcp-timestamps"><span class="nav-number">6.1.</span> <span class="nav-text">net.ipv4.tcp_timestamps</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#net-ipv4-tcp-tw-reuse"><span class="nav-number">6.2.</span> <span class="nav-text">net.ipv4.tcp_tw_reuse</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#net-ipv4-tcp-tw-recycle"><span class="nav-number">6.3.</span> <span class="nav-text">net.ipv4.tcp_tw_recycle</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实践案例和调优参数"><span class="nav-number">7.</span> <span class="nav-text">实践案例和调优参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#以上。"><span class="nav-number">7.1.</span> <span class="nav-text">以上。</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -718,7 +807,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.5k</span>
+    <span title="Site words total count">11.4k</span>
   
 </div>
 <div class="powered-by">
@@ -868,9 +957,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://jamesduan.com/2017/12/23/hello-world/';
-          this.page.identifier = '2017/12/23/hello-world/';
-          this.page.title = 'Hello World';
+          this.page.url = 'http://jamesduan.com/2017/11/03/net_tw/';
+          this.page.identifier = '2017/11/03/net_tw/';
+          this.page.title = 'time_wait详解[转载]';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://James.disqus.com/embed.js';

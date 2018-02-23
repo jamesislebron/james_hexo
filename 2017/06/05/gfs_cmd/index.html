@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="GlusterFS,分布式存储," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="a kid from akron">
-<meta property="og:type" content="website">
-<meta property="og:title" content="James&#39;s Notes">
-<meta property="og:url" content="http://jamesduan.com/archives/2018/index.html">
+<meta name="description" content="生产中不可避免地用到了NFS，但对于一些重要的数据需要共享的时候，NFS显得不是那么保险。所以在众多开源项目中寻找了分布式存储系统GlusterFS作为NFS的替代。GlusterFS也被直接用到了自行设计的yummy-config配置文件关系系统中，不仅更好地保证了文件的安全，也在性能上有了很好的改善。本文主要记录一些常用的GlsuterFS的command_line。">
+<meta name="keywords" content="GlusterFS,分布式存储">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GlusterFS常用命令">
+<meta property="og:url" content="http://jamesduan.com/2017/06/05/gfs_cmd/index.html">
 <meta property="og:site_name" content="James&#39;s Notes">
-<meta property="og:description" content="a kid from akron">
+<meta property="og:description" content="生产中不可避免地用到了NFS，但对于一些重要的数据需要共享的时候，NFS显得不是那么保险。所以在众多开源项目中寻找了分布式存储系统GlusterFS作为NFS的替代。GlusterFS也被直接用到了自行设计的yummy-config配置文件关系系统中，不仅更好地保证了文件的安全，也在性能上有了很好的改善。本文主要记录一些常用的GlsuterFS的command_line。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-08T08:39:24.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="James&#39;s Notes">
-<meta name="twitter:description" content="a kid from akron">
+<meta name="twitter:title" content="GlusterFS常用命令">
+<meta name="twitter:description" content="生产中不可避免地用到了NFS，但对于一些重要的数据需要共享的时候，NFS显得不是那么保险。所以在众多开源项目中寻找了分布式存储系统GlusterFS作为NFS的替代。GlusterFS也被直接用到了自行设计的yummy-config配置文件关系系统中，不仅更好地保证了文件的安全，也在性能上有了很好的改善。本文主要记录一些常用的GlsuterFS的command_line。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://jamesduan.com/archives/2018/"/>
+  <link rel="canonical" href="http://jamesduan.com/2017/06/05/gfs_cmd/"/>
 
 
 
 
 
-  <title>归档 | James's Notes</title>
+  <title>GlusterFS常用命令 | James's Notes</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,111 +273,263 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jamesduan.com/2017/06/05/gfs_cmd/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="James Duan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/maozi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="James's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/12/ansible/" itemprop="url">
-              
-                <span itemprop="name">ansible的一些小tips</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">GlusterFS常用命令</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-12T14:23:16+08:00"
-              content="2018-01-12" >
-          01-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T20:21:21+08:00">
+                2017-06-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术进步/" itemprop="url" rel="index">
+                    <span itemprop="name">技术进步</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/05/gfs_cmd/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/05/gfs_cmd/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  514
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/01/test-art/" itemprop="url">
-              
-                <span itemprop="name">next主题fullimage显示不居中问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-01T22:47:05+08:00"
-              content="2018-01-01" >
-          01-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>生产中不可避免地用到了NFS，但对于一些重要的数据需要共享的时候，NFS显得不是那么保险。所以在众多开源项目中寻找了分布式存储系统GlusterFS作为NFS的替代。<br>GlusterFS也被直接用到了自行设计的yummy-config配置文件关系系统中，不仅更好地保证了文件的安全，也在性能上有了很好的改善。本文主要记录一些常用的GlsuterFS的command_line。<br><a id="more"></a></p>
+<h4 id="删除卷"><a href="#删除卷" class="headerlink" title="删除卷"></a>删除卷</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> gluster volume stop gv1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> gluster volume delete gv1</span></span><br></pre></td></tr></table></figure>
+<h4 id="将一台server移出整个集群"><a href="#将一台server移出整个集群" class="headerlink" title="将一台server移出整个集群"></a>将一台server移出整个集群</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> gluster peer detach server4</span></span><br></pre></td></tr></table></figure>
+<h4 id="卷扩容"><a href="#卷扩容" class="headerlink" title="卷扩容"></a>卷扩容</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">首先先添加server</span></span><br><span class="line"></span><br><span class="line">gluster peer probe server5 #添加server5</span><br><span class="line">gluster peer probe server6 #添加server6</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">接下来向volume中add brick</span></span><br><span class="line"></span><br><span class="line">gluster volume add-brick gv1 server5:/bricks/brick1/gv1 server6:/brick/brick1/gv1</span><br><span class="line"></span><br><span class="line">收缩卷（在卷收缩之前gluster需要先移动数据到其他位置）：</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">首先remove brick</span></span><br><span class="line"></span><br><span class="line">gluster volume remove-brick gv1 server5:/bricks/brick1/gv1 server6:/brick/brick1/gv1 start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看迁移状态</span></span><br><span class="line"></span><br><span class="line">gluster volume remove-brick gv1 server5:/bricks/brick1/gv1 server6:/brick/brick1/gv1 status</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">迁移完成后提交</span></span><br><span class="line"></span><br><span class="line">gluster volume remove-brick gv1 server5:/bricks/brick1/gv1 server6:/brick/brick1/gv1 commit</span><br></pre></td></tr></table></figure>
+<h4 id="迁移卷（将server4上的数据迁移到server5上）"><a href="#迁移卷（将server4上的数据迁移到server5上）" class="headerlink" title="迁移卷（将server4上的数据迁移到server5上）"></a>迁移卷（将server4上的数据迁移到server5上）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">首先将server5添加到TSP中</span></span><br><span class="line"></span><br><span class="line">gluster peer probe server5</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">接着开始迁移</span></span><br><span class="line"></span><br><span class="line">gluster volume replace-brick gv1 server4:/bricks/brick1/gv1 server5:/brick/brick1/gv1 start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看迁移状态</span></span><br><span class="line"></span><br><span class="line">gluster volume replace-brick gv1 server4:/bricks/brick1/gv1 server5:/brick/brick1/gv1 status</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">数据迁移完成之后提交</span></span><br><span class="line"></span><br><span class="line">gluster volume replace-brick gv1 server4:/bricks/brick1/gv1 server5:/brick/brick1/gv1 commit</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">如果server4出现故障已经不能运行，执行强制提交</span></span><br><span class="line"></span><br><span class="line">gluster volume replace-brick gv1 server4:/bricks/brick1/gv1 server5:/brick/brick1/gv1 commit -force</span><br></pre></td></tr></table></figure>
+<h4 id="同步整个卷"><a href="#同步整个卷" class="headerlink" title="同步整个卷"></a>同步整个卷</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> gluster volume heal gv1 full</span></span><br></pre></td></tr></table></figure>
+<h4 id="触发副本自愈"><a href="#触发副本自愈" class="headerlink" title="触发副本自愈"></a>触发副本自愈</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">只修复有问题的文件</span></span><br><span class="line">gluster volume heal mamm-volume</span><br><span class="line"><span class="meta">#</span><span class="bash">修复所有文件</span></span><br><span class="line">gluster volume heal mamm-volume full</span><br><span class="line"><span class="meta">#</span><span class="bash">查看自愈详情</span></span><br><span class="line">gluster volume heal mamm-volume info</span><br><span class="line">gluster volume heal mamm-volume info healed|heal-failed|split-brain</span><br></pre></td></tr></table></figure>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>二维码还是放这，万一真有大佬赏呢？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="James Duan 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="James Duan 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    James Duan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://jamesduan.com/2017/06/05/gfs_cmd/" title="GlusterFS常用命令">http://jamesduan.com/2017/06/05/gfs_cmd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GlusterFS/" rel="tag"># GlusterFS</a>
+          
+            <a href="/tags/分布式存储/" rel="tag"># 分布式存储</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/03/glusterfs/" rel="next" title="GlusterFS简介和可用性测试">
+                <i class="fa fa-chevron-left"></i> GlusterFS简介和可用性测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/03/ansi-ci/" rel="prev" title="jenkins+ansible持续集成之自动发布脚本">
+                jenkins+ansible持续集成之自动发布脚本 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -383,6 +537,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -403,8 +571,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -496,6 +673,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除卷"><span class="nav-number">1.</span> <span class="nav-text">删除卷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将一台server移出整个集群"><span class="nav-number">2.</span> <span class="nav-text">将一台server移出整个集群</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷扩容"><span class="nav-number">3.</span> <span class="nav-text">卷扩容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迁移卷（将server4上的数据迁移到server5上）"><span class="nav-number">4.</span> <span class="nav-text">迁移卷（将server4上的数据迁移到server5上）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步整个卷"><span class="nav-number">5.</span> <span class="nav-text">同步整个卷</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#触发副本自愈"><span class="nav-number">6.</span> <span class="nav-text">触发副本自愈</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -651,6 +844,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -668,6 +865,18 @@
       <script id="dsq-count-scr" src="https://James.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://jamesduan.com/2017/06/05/gfs_cmd/';
+          this.page.identifier = '2017/06/05/gfs_cmd/';
+          this.page.title = 'GlusterFS常用命令';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://James.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

@@ -432,24 +432,24 @@
 <li>在glusterfs client的处理末端，通过网络将数据递交给 Glusterfs Server，并且将数据写入到服务器所控制的存储设备上。</li>
 </ol>
 <h4 id="几种volume（卷）的方式"><a href="#几种volume（卷）的方式" class="headerlink" title="几种volume（卷）的方式"></a>几种volume（卷）的方式</h4><h5 id="distributed-volume（分布巻）"><a href="#distributed-volume（分布巻）" class="headerlink" title="distributed volume（分布巻）"></a>distributed volume（分布巻）</h5><img src="/images/dis_vol.png">
-<p>分布卷可以将某个文件随机的存储在卷内的一个brick内，通常用于扩展存储能力，不支持数据的冗余。除非底层的brick使用RAID等外部的冗余措施。<br>命令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gluster volume create mamm-volume node1:/media node2:/media node3:/media ...</span><br></pre></td></tr></table></figure></p>
+<p>分布卷可以将某个文件随机的存储在卷内的一个brick内，通常用于扩展存储能力，不支持数据的冗余。除非底层的brick使用RAID等外部的冗余措施。<br>命令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gluster volume create mamm-volume node1:/media node2:/media node3:/media ...</span></span><br></pre></td></tr></table></figure></p>
 <h5 id="replicated-volume（镜像卷）"><a href="#replicated-volume（镜像卷）" class="headerlink" title="replicated volume（镜像卷）"></a>replicated volume（镜像卷）</h5><img src="/images/rep_vol.png">
-<p>镜像卷在创建时可指定复本的数量，复本在存储时会在卷的不同brick上，因此有几个复本就必须提供至少多个brick。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gluster volume create mamm-volume repl 2  node1:/media node2:/media</span><br></pre></td></tr></table></figure></p>
+<p>镜像卷在创建时可指定复本的数量，复本在存储时会在卷的不同brick上，因此有几个复本就必须提供至少多个brick。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gluster volume create mamm-volume repl 2  node1:/media node2:/media</span></span><br></pre></td></tr></table></figure></p>
 <p>注意：在创建复本卷时，brick数量与复本个数必须相等；否则将会报错。<br>另外如果同一个节点提供了多个brick，也可以在同一个结点上创建复本卷，但这并不安全，因为一台设备挂掉，其上面的所有brick就无法访问了。</p>
 <h5 id="striped-volume（切片卷）"><a href="#striped-volume（切片卷）" class="headerlink" title="striped volume（切片卷）"></a>striped volume（切片卷）</h5><img src="/images/str_vol.png">
-<p>分片卷将单个文件分成小块(块大小支持配置,默认为128K)，然后将小块存储在不同的brick上，以提升文件的访问性能。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gluster volume create mamm-volume stripe 2 node1:/media node2:/media</span><br></pre></td></tr></table></figure></p>
+<p>分片卷将单个文件分成小块(块大小支持配置,默认为128K)，然后将小块存储在不同的brick上，以提升文件的访问性能。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gluster volume create mamm-volume stripe 2 node1:/media node2:/media</span></span><br></pre></td></tr></table></figure></p>
 <p>stripe后的参数指明切片的分布位置个数<br>注意：brick的个数必须等于分布位置的个数</p>
 <h5 id="distribute-replication-volume（分布式镜像卷）"><a href="#distribute-replication-volume（分布式镜像卷）" class="headerlink" title="distribute replication volume（分布式镜像卷）"></a>distribute replication volume（分布式镜像卷）</h5><img src="/images/dis_rep_vol.png">
-<p>此类型卷是基本复本卷的扩展，可以指定若干brick组成一个复本卷，另外若干brick组成另个复本卷。单个文件在复本卷内数据保持复制，不同文件在不同复本卷之间进行分布。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gluster volume create dr-volume repl 2 node1:/exp1 node2:/exp2 node3:/exp3 node4:/exp4</span><br></pre></td></tr></table></figure></p>
+<p>此类型卷是基本复本卷的扩展，可以指定若干brick组成一个复本卷，另外若干brick组成另个复本卷。单个文件在复本卷内数据保持复制，不同文件在不同复本卷之间进行分布。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gluster volume create dr-volume repl 2 node1:/exp1 node2:/exp2 node3:/exp3 node4:/exp4</span></span><br></pre></td></tr></table></figure></p>
 <p> 注意：复本卷的组成依赖于指定brick的顺序<br>brick必须为复本数K的N倍,brick列表将以K个为一组，形成N个复本卷</p>
 <h5 id="distribute-striped-volume"><a href="#distribute-striped-volume" class="headerlink" title="distribute striped volume"></a>distribute striped volume</h5><img src="/images/dis_str_vol.png">
-<p>类似于分布式复本卷，<br>若创建的卷的节点提供的bricks个数为stripe个数N倍时，将创建此类型的卷。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gluster volume create ds-volume stripe 2 node1:/exp1 node1:/exp2 [&amp;] node2:/exp3 node2:/exp4</span><br></pre></td></tr></table></figure></p>
+<p>类似于分布式复本卷，<br>若创建的卷的节点提供的bricks个数为stripe个数N倍时，将创建此类型的卷。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gluster volume create ds-volume stripe 2 node1:/exp1 node1:/exp2 [&amp;] node2:/exp3 node2:/exp4</span></span><br></pre></td></tr></table></figure></p>
 <p>注意：<br>切片卷的组成依赖于指定brick的顺序<br>brick必须为复本数K的N倍,brick列表将以K个为一组，形成N个切片卷</p>
 <h5 id="striped-replicated-volume（切片镜像卷）"><a href="#striped-replicated-volume（切片镜像卷）" class="headerlink" title="striped replicated volume（切片镜像卷）"></a>striped replicated volume（切片镜像卷）</h5><img src="/images/str_rep_vol.png">
-<p>数据将进行切片，切片在复本卷内进行复制，在不同卷间进行分布。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gluster volume create test-volume stripe 2 replica 2 server1:/exp1 server2:/exp2 server3:/exp3 server4:/exp4</span><br></pre></td></tr></table></figure></p>
+<p>数据将进行切片，切片在复本卷内进行复制，在不同卷间进行分布。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gluster volume create <span class="built_in">test</span>-volume stripe 2 replica 2 server1:/exp1 server2:/exp2 server3:/exp3 server4:/exp4</span></span><br></pre></td></tr></table></figure></p>
 <p>exp1和exp2组成复本卷，exp3和exp4组成复本卷，两个复本卷组成分片卷。<br>注意：brick数量必须和stripe个数N和repl参数M的积N*M相等。即对于brick列表，将以M为一组，形成N个切片卷。数据切片分布在N个切片卷上，在每个切片卷内部，切片数据复本M份。</p>
 <h5 id="distributed-striped-replicated-vloume（分布式切片镜像卷）"><a href="#distributed-striped-replicated-vloume（分布式切片镜像卷）" class="headerlink" title="distributed striped replicated vloume（分布式切片镜像卷）"></a>distributed striped replicated vloume（分布式切片镜像卷）</h5><img src="/images/dis_str_rep_vol.png">
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gluster volume create test-volume stripe 2 replica 2 server1:/exp1 server2:/exp2 server3:/exp3 server4:/exp4 server5:/exp5 server6:/exp6 server7:/exp7 server8:/exp8</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gluster volume create <span class="built_in">test</span>-volume stripe 2 replica 2 server1:/exp1 server2:/exp2 server3:/exp3 server4:/exp4 server5:/exp5 server6:/exp6 server7:/exp7 server8:/exp8</span></span><br></pre></td></tr></table></figure>
 <p>注意：bricks数量为stripe个数N，和repl个数M的积N*M的整数倍<br>exp1 exp2 exp3 exp4组成一个分布卷，exp1和exp2组成一个stripe卷，exp3和exp4组成另一个stripe卷，1和2，3和4互为复本卷<br>exp4-exp8组成另一个分布卷，略。</p>
 <h4 id="读写测试数据及与NFS的比较"><a href="#读写测试数据及与NFS的比较" class="headerlink" title="读写测试数据及与NFS的比较"></a>读写测试数据及与NFS的比较</h4><p>测试背景：<br>     两者都是使用单客户端请求读写；<br>     GlusterFS采用4台2G/2核，20G高性能硬盘的主机，按照分布式切片卷的的方式挂载使用；<br>     NFS采用一台2G/2核，20G高性能硬盘的主机，正常RW挂载使用；</p>
 <img src="/images/gfs_test_data.png">
@@ -534,14 +534,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/13/beian/" rel="next" title="建站请绕道：备案辛酸路">
+                <i class="fa fa-chevron-left"></i> 建站请绕道：备案辛酸路
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/03/ansi-ci/" rel="prev" title="jenkins+ansible持续集成之自动发布脚本">
-                jenkins+ansible持续集成之自动发布脚本 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/05/gfs_cmd/" rel="prev" title="GlusterFS常用命令">
+                GlusterFS常用命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -639,7 +643,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -661,7 +665,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -757,7 +761,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.5k</span>
+    <span title="Site words total count">11.4k</span>
   
 </div>
 <div class="powered-by">
